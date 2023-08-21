@@ -4,6 +4,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import { createServer } from 'http'
 import userRoute from './src/routes/route.users.js'
+import categoryRoute from './src/routes/route.category.js'
 
 const app = express()
 dotenv.config()
@@ -19,5 +20,6 @@ app.get('/', (req, res) => {
     return res.send('Welcome to TodoList App')
 })
 app.use('/api/users', userRoute)
+app.use('/api/categories', categoryRoute)
 const server = createServer(app)
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
